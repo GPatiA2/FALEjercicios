@@ -1,0 +1,1 @@
+Loteria.o: ../Loteria.cpp

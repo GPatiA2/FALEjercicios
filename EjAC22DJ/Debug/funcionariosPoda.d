@@ -1,0 +1,1 @@
+funcionariosPoda.o: ../funcionariosPoda.cpp

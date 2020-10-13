@@ -1,0 +1,1 @@
+particion.o: ../particion.cpp

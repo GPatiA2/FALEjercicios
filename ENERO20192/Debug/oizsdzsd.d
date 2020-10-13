@@ -1,0 +1,1 @@
+oizsdzsd.o: ../oizsdzsd.cpp

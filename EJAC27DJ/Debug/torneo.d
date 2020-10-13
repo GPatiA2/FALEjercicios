@@ -1,0 +1,1 @@
+torneo.o: ../torneo.cpp

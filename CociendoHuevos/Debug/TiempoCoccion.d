@@ -1,0 +1,1 @@
+TiempoCoccion.o: ../TiempoCoccion.cpp

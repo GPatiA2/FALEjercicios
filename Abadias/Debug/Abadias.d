@@ -1,0 +1,1 @@
+Abadias.o: ../Abadias.cpp

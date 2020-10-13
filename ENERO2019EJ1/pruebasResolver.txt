@@ -1,0 +1,149 @@
+//void resolver(vector<bool> & datos, int cantidad){
+//	//hayCant = q = 3 && #q : r <= q < s : v[q] = true;
+//	//Invariante: 0 <= j <= tamanio && p = min r,s: 0<= r <= s < j <= tamanio && hayCant(r,s,cantidad)
+//	int r = 0;
+//	int p = 0;
+//	int q = 0;
+//	int j = 0;
+//	while( q < cantidad && j < datos.size()){
+//		if(datos[j] == 1){
+//			q++;
+//		}
+//		j++;
+//	}
+//	if( q  == cantidad){
+//		//cout << "PRIMER SEGMENTO DESDE " << r << " HASTA " << j << endl;
+//		p = j - r  ;
+//		///cout << "DE LONGITUD " << p << endl;
+//		//cout << "HAY " << q << " TRUES" << endl;
+//
+//		while(j < datos.size()){
+//			if(datos[j]){
+//				j++;
+//				q++;
+//				while(q > cantidad){
+//					if(datos[r]){
+//						q--;
+//					}
+//					r++;
+//				}
+//				while(!datos[r]){
+//					r++;
+//				}
+//				if(j - r < p){
+//					p = j - r;
+//				}
+//			}
+//			j++;
+//		}
+//		cout << p - 1  << endl;
+//	}
+//	else{
+//		cout << j+1 << endl;
+//	}
+//
+//
+//
+//
+//}
+
+//void resolver (vector<bool> & datos, int cantidad){
+//	unsigned int ini = 0;
+//	unsigned int fin = 0;
+//	unsigned int tamanio = 0;
+//	int trues = 0;
+//
+//	while(fin < datos.size() && trues < cantidad){
+//		if(datos[fin]){
+//			trues++;
+//		}
+//		fin++;
+//	}
+//	tamanio = fin - ini;
+//	cout << "FIN = " << fin << endl;
+//	fin++;
+//	if (trues == cantidad){
+//		while(fin < datos.size()){
+//			while(fin < datos.size() && trues == cantidad){
+//				fin++;
+//				if(datos[fin]){
+//					trues++;
+//				}
+//			}
+//			while(trues != cantidad){
+//				ini++;
+//				if(datos[ini]){
+//					trues--;
+//				}
+//			}
+//			if(tamanio > fin - ini){
+//				tamanio = fin - ini;
+//				cout << "TAMANIO = " << tamanio << endl;
+//				fin++;
+//			}
+//		}
+//		cout << tamanio << endl;
+//	}
+//	else{
+//		cout << fin+1 << endl;
+//	}
+//
+//}
+
+//void resolver (vector <bool> & datos, int cantidad){
+//	unsigned int fin = 0;
+//	unsigned int ini = 0;
+//	unsigned int maxtamanio = 0;
+//	int trues = 0;
+//	while(trues != cantidad && fin < datos.size()){
+//		if(datos[fin]){
+//			trues++;
+//		}
+//		fin++;
+//	}
+//	if(trues == cantidad){
+//		maxtamanio = fin-ini;
+////		cout << "MAXTAMANIO EN PRIMERA VUELTA = " << maxtamanio << endl;
+//		while(fin < datos.size()){
+////			cout << "INI = " << ini << " FIN = " << fin << endl;
+////			cout << "TRUES = " << trues << endl;
+////			cout << "MAXTAMANIO = " << maxtamanio << endl;
+////			cout << "TAMANIO ACTUAL = " << fin-ini << endl;
+////			system("PAUSE");
+//			if(trues == cantidad){
+//				maxtamanio = min(maxtamanio, fin-ini+1);
+////				cout << "TAMANIO ACTUALIZADO" << endl;
+//			}
+//			else{
+//				while(trues != cantidad && ini <= fin){
+//					ini++;
+//					if(datos[ini-1]){
+//						trues--;
+//					}
+////					cout << "Acercando el INI = " << ini << endl;
+////					cout << "TRUES = " << trues << endl;
+//				}
+//				if(trues == cantidad){
+//					maxtamanio = min(maxtamanio, fin-ini+1);
+////					cout << "TAMANIO ACTUALIZADO" << endl;
+//				}
+//				while(ini <= fin && !datos[ini]){
+//					ini++;
+//				}
+//				if(trues == cantidad){
+//					maxtamanio = min(maxtamanio, fin-ini+1);
+////					cout << "TAMANIO ACTUALIZADO" << endl;
+//				}
+//			}
+//			fin++;
+//			if(datos[fin]){
+//				trues++;
+//			}
+//		}
+//		cout << maxtamanio << endl;
+//	}
+//	else{
+//		maxtamanio = fin+1;
+//		cout << fin+1 << endl;
+//	}
+//}

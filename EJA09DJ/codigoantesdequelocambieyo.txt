@@ -1,0 +1,97 @@
+/*
+ * Grupo Mercadona
+ * Nicks: Grooot, LaCabraDeLaLegion, Palomitas, Mr_TostaRica, Dav16d, Zapi
+ * Ejercicio A09
+ */
+
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+
+int calcular(int num, int potencia10, int potencia9);
+int calculaUnos(int num);
+
+bool resuelveCaso() {
+
+    //Leer caso de prueba
+	int num;
+	int sol;
+	cin >> num;
+    if (!std::cin)
+        return false;
+    sol = calculaUnos(num);
+    cout << "=========" << endl;
+    cout << sol << "\n";
+    cout << "=========" << endl;
+    //Resolver problema
+    //Escribir resultado
+    return true;
+}
+
+int calculaUnos(int num){
+	return calcular(num, 1, 1);
+}
+
+int calcular(int numero, int potencia10, int potencia9){
+	int potencia = potencia10;
+	int dig_izq;
+	int resto;
+	int num2;
+	cout << "_____________________________________________________________________" << endl;
+	cout << "NUMERO = " << numero << endl;
+	cout << "POTENCIA10 = " << potencia10 << endl;
+	cout << "NUMERO / POTENCIA " << numero/potencia10 << endl;
+	dig_izq = numero / potencia10;
+	cout << "DIGIZQ = " << dig_izq << endl;
+	if(numero / potencia10 < 10){
+		cout << "NUMERO / POTENCIA < 10" << endl;
+		if(dig_izq > 1){
+			cout << " DEVUELVO = " << potencia9 << " * " << (dig_izq-1)<< " = " << potencia9 * (dig_izq-1) << endl;
+			return potencia9 * (dig_izq -1);
+		}
+		else if(dig_izq == 1){
+			cout << "DEVUELVO = " << potencia9 << endl;
+			return potencia9;
+		}
+		else{
+			cout << "DEVUELVO = 0 " << endl;
+			//return potencia9;
+			return 0;
+		}
+	}
+	else{
+		potencia10 *= 10;
+		resto = (numero / potencia10) * potencia10;
+		cout << "RESTO = " << resto << endl;
+		num2 = numero % potencia10;
+		cout << "NUM2 " << num2 << endl;
+		cout << "LLAMADAS = " << resto << " " << potencia10 << "  Y  " << num2 << " " << "1" << endl;
+		cout << "_______________________________________________________________" << endl;
+		if(dig_izq != 1){
+			return calcular(resto, potencia10, potencia9*9) + calcular(num2, 1, 1);
+		}
+		else{
+			return calcular(resto, potencia10, potencia9*9);
+		}
+		
+	}
+}
+
+int main() {
+
+    // ajuste para que cin extraiga directamente de un fichero
+#ifndef DOMJUDGE
+    std::ifstream in("casos.txt");
+    auto cinbuf = std::cin.rdbuf(in.rdbuf());
+#endif
+
+    while (resuelveCaso());
+
+    // restablecimiento de cin
+#ifndef DOMJUDGE
+    std::cin.rdbuf(cinbuf);
+    system("pause");
+#endif
+    return 0;
+}

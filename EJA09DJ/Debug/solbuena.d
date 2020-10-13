@@ -1,0 +1,1 @@
+solbuena.o: ../solbuena.cpp

@@ -1,0 +1,1 @@
+Sol.o: ../Sol.cpp

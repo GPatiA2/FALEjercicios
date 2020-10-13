@@ -1,0 +1,1 @@
+moda.o: ../moda.cpp
